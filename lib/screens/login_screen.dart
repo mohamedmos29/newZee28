@@ -16,7 +16,8 @@ class _LoginScreenState extends State<LoginScreen> {
   var formKey = GlobalKey<FormState>();
 
   var isPassward = true;
-
+  var isPatient = false;
+  var isEscort = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -93,6 +94,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(
                   height: 10,
+                ),
+                CheckboxListTile(
+                  title: Text('Patient'),
+                  value: isPatient,
+                  onChanged: (newbool) {
+                    setState(() {
+                      if (isEscort == true) {
+                        return;
+                      } else {
+                        isPatient = newbool!;
+                      }
+                    });
+                  },
+                ),
+                CheckboxListTile(
+                  title: Text('Escort'),
+                  value: isEscort,
+                  onChanged: (newbool1) {
+                    setState(() {
+                      if (isPatient == true) {
+                        return;
+                      }else{isEscort = newbool1!;}
+                      
+                    });
+                  },
                 ),
                 ButtonComponent(
                   () {

@@ -8,7 +8,6 @@ import '../Dialog.dart';
 import 'Register/Register_Response.dart';
 import 'Register/auth_Register.dart';
 
-
 // ignore: must_be_immutable
 class RegisterScreen extends StatefulWidget {
   @override
@@ -22,7 +21,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController userpasswardController = TextEditingController();
   TextEditingController userrepeatPasswardController = TextEditingController();
   TextEditingController userPhoneController = TextEditingController();
-
 
   var formKey = GlobalKey<FormState>();
 
@@ -83,6 +81,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 inputType: TextInputType.name,
                 preIcon: Icons.verified,
               ),
+              const SizedBox(
+                height: 10,
+              ),
               TextFieldComponent(
                 controlleR: userEmailController,
                 validate: (value) {
@@ -90,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return 'Please enter your Email';
                   }
                   bool emailValid = RegExp(
-                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                       .hasMatch(value);
                   if (!emailValid) {
                     'Enter Valid Email';
@@ -101,7 +102,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 inputType: TextInputType.name,
                 preIcon: Icons.verified,
               ),
-
               const SizedBox(
                 height: 10,
               ),
@@ -162,7 +162,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return 'Please enter your phone';
                   }
                   bool emailValid = RegExp(
-                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                       .hasMatch(value);
                   if (!emailValid) {
                     'Enter Valid  phone';
@@ -173,10 +173,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 inputType: TextInputType.phone,
                 preIcon: Icons.verified,
               ),
-
+              const SizedBox(
+                height: 10,
+              ),
               ButtonComponent(
                 () {
-                  register();
+                  // register();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return AddScreen();
+                  })));
                 },
                 buttonName: 'Register',
               ),
@@ -206,10 +212,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  void register(){
-    if (formKey.currentState?.validate()==true) {
-      Api_manager.register(userNameController.text, userEmailController.text, userpasswardController.text,
-          userrepeatPasswardController.text, userPhoneController.text,context);
+  void register() {
+    if (formKey.currentState?.validate() == true) {
+      Api_manager.register(
+          userNameController.text,
+          userEmailController.text,
+          userpasswardController.text,
+          userrepeatPasswardController.text,
+          userPhoneController.text,
+          context);
     }
   }
 }
