@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/button_com.dart';
 import 'package:flutter_application_1/components/textField_com.dart';
+import 'package:flutter_application_1/screens/add_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -101,7 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (newbool) {
                     setState(() {
                       if (isEscort == true) {
-                        return;
+                        isEscort = false;
+                        isPatient = newbool!;
                       } else {
                         isPatient = newbool!;
                       }
@@ -114,9 +116,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   onChanged: (newbool1) {
                     setState(() {
                       if (isPatient == true) {
-                        return;
-                      }else{isEscort = newbool1!;}
-                      
+                        isPatient = false;
+                        isEscort = newbool1!;
+                      } else {
+                        isEscort = newbool1!;
+                      }
                     });
                   },
                 ),
@@ -127,7 +131,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       print(userNameController.text);
                       print(passwardController.text);
                     }
-                    return null;
+                    if (isEscort == true) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) {
+                        return AddScreen();
+                      })));
+                    } else if (isPatient == true) {
+                    } else {
+                      print('error when login');
+                    }
                   },
                   buttonName: 'Login',
                 ),

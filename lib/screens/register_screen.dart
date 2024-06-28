@@ -3,6 +3,7 @@ import 'package:flutter_application_1/components/button_com.dart';
 import 'package:flutter_application_1/components/textField_com.dart';
 import 'package:flutter_application_1/screens/Api/api_manager.dart';
 import 'package:flutter_application_1/screens/add_screen.dart';
+import 'package:flutter_application_1/screens/login_screen.dart';
 
 import '../Dialog.dart';
 import 'Register/Register_Response.dart';
@@ -181,7 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   // register();
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) {
-                    return AddScreen();
+                    return LoginScreen();
                   })));
                 },
                 buttonName: 'Register',

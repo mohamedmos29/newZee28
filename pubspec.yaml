@@ -38,11 +38,20 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^1.2.0
   image_picker: ^1.1.2
-
+  sizer: ^2.0.15
+  flutter_svg:
+  rxdart:
+  provider:
+  flare_flutter:
+  flutter_local_notifications: ^17.1.2
+  timezone: 0.9.3
+  permission_handler: ^8.0.0+1
+   
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  intl: ^0.17.0
+  shared_preferences: ^2.0.13
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

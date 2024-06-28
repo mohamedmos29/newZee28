@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/screens/addEcortInfo_screen.dart';
 import 'package:flutter_application_1/screens/addPaitientInfo_screen.dart';
+import 'package:flutter_application_1/screens/reminder/homePage.dart';
 
 class AddScreen extends StatelessWidget {
   static const String routeName = 'Add_Screen';
@@ -63,6 +64,32 @@ class AddScreen extends StatelessWidget {
                 child: const Center(
                   child: Text(
                     'Add Escort',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            GestureDetector(
+              onTap: (() {
+                Navigator.push(context, MaterialPageRoute(builder: ((context) {
+                  return HomePage();
+                })));
+              }),
+              child: Container(
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: const Color(0XFF2E266D),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Add Reminder',
                     style: TextStyle(
                       color: Colors.white,
                     ),
